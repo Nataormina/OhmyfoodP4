@@ -1,0 +1,23 @@
+.location {
+    display: flex;
+    justify-content: center;
+    border: none;
+    font-size: 16px;
+    background-color: #eaeaea;
+    border-bottom: 0.5px solid grey;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .15);
+  }
+  
+  
+  
+  input.location_text {
+    border: none;
+    background-color: #eaeaea;
+  
+  }
+  
+  .location,
+  .fa-solid {
+    padding: 10px;
+    padding-left: 40px;
+  }

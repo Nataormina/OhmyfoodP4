@@ -1,0 +1,32 @@
+.footer {
+    background-color: #353535;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    @media (min-width: 769px) {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      justify-content: flex-end;
+      padding-left: 150px;
+    }
+    & a {
+      text-decoration: none;
+      color: #FFF;
+    }
+    .footer_logo {
+      font-family: 'shrikhand';
+      font-size: 18px;
+      @media (min-width: 769px) {
+      display: flex;
+      margin-top: 0;
+      padding-left: 40px;
+      padding-right: 20px;
+      order: 2;
+  }
+    }
+    a.footer_link {
+      text-decoration: none;
+    } 
+    }
+  
