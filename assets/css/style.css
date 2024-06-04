@@ -20,6 +20,12 @@ header h1 {
   margin-bottom: 10px;
 }
 
+header a {
+  position: absolute;
+  left: 20px;
+  color: #000;
+}
+
 .location {
   display: flex;
   justify-content: center;
@@ -41,6 +47,48 @@ input.location_text {
   padding-left: 40px;
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeout 0.2s linear;
+  animation-delay: 2.5s;
+  animation-fill-mode: both;
+  width: 99vw;
+  height: 105vh;
+  position: fixed;
+  background-color: hsla(0, 0%, 100%, 0.9);
+  top: 0;
+  z-index: 1;
+}
+.loader_container {
+  display: flex;
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #9356DC;
+  width: 120px;
+  height: 120px;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    position: absolute;
+    z-index: -10;
+  }
+}
 .accueil_text {
   text-align: center;
   background-color: #f6f6f6;
@@ -66,12 +114,25 @@ input.location_text {
 }
 
 .btn_explorer {
+  background-color: #686868;
   background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
   text-decoration: none;
   color: #fff;
   border-radius: 50px;
-  box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.25);
   padding: 15px 20px;
+  transition: all 500ms;
+  cursor: pointer;
+  position: relative;
+}
+.btn_explorer:hover {
+  transform: scale(1);
+  background-color: white;
+  box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.5);
+  background-position: right;
+}
+s .btn_explorer:active {
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
 .fonctionnement {
@@ -161,7 +222,31 @@ input.location_text {
 }
 
 .btn-heart--solid {
-  visibility: hidden;
+  color: transparent;
+  margin-left: -23.7px;
+  margin-top: 2px;
+  opacity: 0;
+  position: absolute;
+  transition-duration: 1s;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(351deg, rgb(147, 86, 220) 6%, rgb(255, 121, 218) 100%);
+}
+
+.btn-heart--solid:hover {
+  opacity: 1;
+}
+
+.btn-heart--outline {
+  visibility: visible;
+  transition-duration: 1s;
+}
+
+.btn-heart--outline:hover {
+  visibility: visible;
+  color: purple;
+  opacity: 1;
 }
 
 .card_icon.btn-heart {
@@ -183,7 +268,6 @@ input.location_text {
   right: 10px;
   top: 10px;
   padding: 0.45em 0.9em;
-  border-radius: 20px;
   background-color: #99e2d0;
   color: #2c9c81;
   font-size: 0.8rem;
@@ -256,30 +340,6 @@ input.location_text {
   text-decoration: none;
 }
 
-.loader {
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #db34b7;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 2s linear;
-  justify-content: center;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-header a {
-  position: absolute;
-  left: 20px;
-  color: #000;
-}
-
 .banner img {
   object-fit: cover;
   width: 100%;
@@ -331,7 +391,7 @@ header a {
 }
 @media (min-width: 769px) {
   .menu h3 {
-    margin-left: 80px;
+    margin-left: 122px;
   }
 }
 .menu h3:after {
@@ -346,36 +406,110 @@ header a {
 .menu .list {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   background-color: #fff;
   border-radius: 15px;
-  padding: 12px 22px 12px 10px;
-  margin-bottom: 14px;
-  margin-left: 10px;
-  margin-right: 10px;
+  padding: 0 0 0 12px;
+  margin: 20px 10px 14px 10px;
   animation: menu_list 1s ease both;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 30px -12px;
 }
 @media (min-width: 769px) {
   .menu .list {
-    margin-left: 80px;
+    margin-left: 122px;
     margin-right: 80px;
   }
 }
 
-.list_title {
-  margin: 0;
-}
-
-.list_subtitle {
+.list_container, .list_title {
+  margin-right: auto;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+.list_title {
+  font-size: 18px;
+  margin: 0;
+}
+
+.list_subtitle {
+  font-size: 15.04px;
+  font-weight: 300;
+}
+
+.list_price {
+  margin-right: -35px;
+}
+
+.list_order {
+  position: relative;
+  background-color: #99E2D0;
+  color: #fff;
+  font-size: 20px;
+  padding: 22.5px 20px;
+  border-radius: 0 15px 15px 0;
+  right: -40px;
+  top: 0;
+  transform: translateX(60px);
+  transition: 0.5s ease-in-out;
+}
+
+.list_icon {
+  transform: rotate(0deg);
+  transition: 0.8s ease-in-out;
+}
+.list_icon:hover {
+  cursor: pointer;
+}
+
+.list {
+  font-weight: 700;
+  font-size: 14px;
+  color: #353535;
+  -webkit-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  margin-left: 15px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.list:hover .list_order {
+  transform: translateX(0);
+  margin-right: 40px;
+  visibility: visible;
+}
+
+.list:hover .list_icon {
+  transform: rotate(360deg);
+}
+
+.menu_list > :nth-of-type(1) {
+  animation: SlideDown 0.9s ease-in-out;
+}
+
+.menu_list > :nth-of-type(2) {
+  animation: SlideDown 1.2s ease-in-out;
+}
+
+.menu_list > :nth-of-type(3) {
+  animation: SlideDown 1.5s ease-in-out;
+}
+
+@keyframes SlideDown {
+  from {
+    transform: translateY(70px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
 .btn {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -385,13 +519,24 @@ header a {
   text-decoration: none;
   color: #fff;
   border-radius: 50px;
-  box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.25);
   padding: 15px 20px;
   display: flex;
   width: 30%;
   justify-content: center;
   background-color: #999;
   margin: auto;
+  transition: all 500ms;
+  position: relative;
+}
+.btn_commander:hover {
+  transform: scale(1);
+  background-color: white;
+  box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.5);
+  background-position: right;
+}
+.btn_commander:active {
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
 /*# sourceMappingURL=style.css.map */
