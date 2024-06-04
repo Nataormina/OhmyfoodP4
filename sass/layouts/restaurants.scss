@@ -34,10 +34,40 @@
     color: #000;
   }
   
+
+      
   .btn-heart--solid {
-    visibility: hidden;
-  
+    color: transparent;
+   margin-left: -23.7px;
+   margin-top: 2px;
+    opacity: 0;
+    position:absolute;
+    transition-duration: 1s;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(351deg, rgba(147,86,220,1) 6%, rgba(255,121,218,1) 100%); 
+    
+}
+
+
+   .btn-heart--solid:hover{
+     opacity: 1; 
+     
+    }
+
+    .btn-heart--outline{
+     visibility: visible;
+    transition-duration: 1s;
   }
+    .btn-heart--outline:hover 
+  {
+    visibility: visible;
+    color: purple;
+    opacity: 1;
+  }
+  
+  
   
   
   .card_icon.btn-heart {
@@ -46,6 +76,11 @@
     right: 18px;
     font-size: 23px;
   }
+
+
+
+ 
+ 
   
   .card_title {
     margin: 0;
@@ -59,7 +94,6 @@
     right: 10px;
     top: 10px;
     padding: .45em .9em;
-    border-radius: 20px;
     background-color: #99e2d0;
     color: #2c9c81;
     font-size: .8rem;
