@@ -15,9 +15,10 @@
     border-radius: 40px 40px 0 0;
     margin-top: -50px;
 
-    @media (min-width: 769px) {
+    @media (min-width: 768px) {
       width: 80%;
       margin:auto;
+      margin-top: -50px;
     }
     & h2 {
       font-family: 'shrikhand';
@@ -28,7 +29,7 @@
    
    .menu_title_restaurant {
     display: flex;
-    @media (min-width: 769px) {
+    @media (min-width: 768px) {
       justify-content: center;
    }
   }
@@ -43,7 +44,7 @@
       text-transform: uppercase;
       position: relative;
       margin: 20px 0 22px 6px;
-      @media (min-width: 769px) {
+      @media (min-width: 768px) {
         margin-left: 122px;
         }
     }
@@ -66,13 +67,11 @@
       border-radius: 15px;
       padding: 0 0 0 12px;
       margin: 20px 10px 14px 10px;
-      
-      
       animation: menu_list 1s ease both;
       overflow: hidden;
       box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 30px -12px;
       
-      @media (min-width: 769px) {
+      @media (min-width: 768px) {
         margin-left: 122px;
         margin-right: 80px;
       }
@@ -101,9 +100,9 @@
      
   
   
-  //ANIMATION DE CHECK MENU
+  //ANIMATION SELECTEUR DE PLAT
   .list_order {
-   position: relative;
+    position: relative;
     background-color: $color-tertiary;
     color: #fff;
     font-size: 20px;
@@ -114,38 +113,34 @@
     transform: translateX(60px);
     transition: .5s ease-in-out;
   }
-  
-  
+
   .list_icon {
     transform: rotate(0deg);
     transition: .8s ease-in-out;
-  
   &:hover {
     cursor: pointer;
   }
   }
+
   .list {
-    
-  font-weight: 700;
-      font-size: 14px;
-      color: #353535;
-      -webkit-transition: .5s ease-in-out;
-      -o-transition: .5s ease-in-out;
-      transition: .5s ease-in-out;
-      margin-left: 15px;
-      cursor: pointer;
-      
-      transition: all 0.4s;
+    font-weight: 700;
+    font-size: 14px;
+    color: #353535;
+    -webkit-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    margin-left: 15px;
+    cursor: pointer;  
+    transition: all 0.4s;
   }
-  
-    .list:hover { 
-      & .list_order {
-      transform: translateX(0);
+
+  .list:hover { 
+    & .list_order {
+    transform: translateX(0);
     margin-right: 40px;
     visibility: visible;
       }  
     }
-  
     
    .list:hover {
     & .list_icon {
@@ -153,24 +148,20 @@
     }
    }
   
-    .menu_list > :nth-of-type(1){
-      animation: SlideDown .9s ease-in-out;
-    
-     
-  
-  }
-  .menu_list > :nth-of-type(2){
-      animation: SlideDown 1.2s ease-in-out;
-      
-  }
-  .menu_list > :nth-of-type(3){
-      animation: SlideDown 1.5s ease-in-out;
-     
+  .menu_list > :nth-of-type(1){
+      animation: SlideDown 1s ease-in-out;   
   }
 
+  .menu_list > :nth-of-type(2){
+      animation: SlideDown 1.3s ease-in-out;   
+  }
+
+  .menu_list > :nth-of-type(3){
+      animation: SlideDown 1.6s ease-in-out;  
+  }
  
   
-  //ANIMATION DE "ENTREES, PLATS, DESSERTS" (PAGE MENU)
+  /*ANIMATION MENUS "ENTREES, PLATS, DESSERTS" (PAGE MENU)*/
   @keyframes SlideDown {
       from {
           transform: translateY(70px);
@@ -186,27 +177,17 @@
     padding-top: 20px;
     padding-bottom: 20px;
   &_commander {
-    background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9)); 
-    text-decoration: none;
-    color: #fff;
-    border-radius: 50px;
-    box-shadow: 0 4px 8px 5px rgba(0, 0, 0, .25);
-    padding: 15px 20px;
+    @include btn_color;
     display: flex;
     width: 30%;
     justify-content: center;
-    background-color: #999;
     margin: auto;
-    transition: all 500ms;
-    position: relative;
+
     &:hover {
-      transform: scale(1);
-      background-color: white;
-     box-shadow:  0.25rem 0.25rem 10px rgba(0, 0, 0, 0.50);
-     background-position: right;
+      @include btn_hover;
    }
   &:active {
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15); 
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, .15); 
   }
     }
   }

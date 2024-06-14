@@ -86,7 +86,6 @@ input.location_text {
   100% {
     opacity: 0;
     position: absolute;
-    z-index: -10;
   }
 }
 .accueil_text {
@@ -114,24 +113,25 @@ input.location_text {
 }
 
 .btn_explorer {
+  background-image: linear-gradient(0deg, #9356DC, #FF79DA);
   background-color: #686868;
-  background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
   text-decoration: none;
   color: #fff;
   border-radius: 50px;
   box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.25);
   padding: 15px 20px;
   transition: all 500ms;
-  cursor: pointer;
   position: relative;
+  cursor: pointer;
 }
 .btn_explorer:hover {
   transform: scale(1);
   background-color: white;
-  box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.5);
   background-position: right;
+  background: linear-gradient(180deg, #ff99e2 0%, #dc7bff 100%);
+  box-shadow: 1px 11px 14px 0px rgba(109, 109, 109, 0.699);
 }
-s .btn_explorer:active {
+.btn_explorer:active {
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 }
 
@@ -231,7 +231,7 @@ s .btn_explorer:active {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(351deg, rgb(147, 86, 220) 6%, rgb(255, 121, 218) 100%);
+  background-image: linear-gradient(351deg, #9356DC 6%, rgb(255, 121, 218) 100%);
 }
 
 .btn-heart--solid:hover {
@@ -268,7 +268,7 @@ s .btn_explorer:active {
   right: 10px;
   top: 10px;
   padding: 0.45em 0.9em;
-  background-color: #99e2d0;
+  background-color: #99E2D0;
   color: #2c9c81;
   font-size: 0.8rem;
   font-weight: 700;
@@ -357,10 +357,11 @@ s .btn_explorer:active {
   border-radius: 40px 40px 0 0;
   margin-top: -50px;
 }
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .menu {
     width: 80%;
     margin: auto;
+    margin-top: -50px;
   }
 }
 .menu h2 {
@@ -372,7 +373,7 @@ s .btn_explorer:active {
 .menu .menu_title_restaurant {
   display: flex;
 }
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .menu .menu_title_restaurant {
     justify-content: center;
   }
@@ -389,7 +390,7 @@ s .btn_explorer:active {
   position: relative;
   margin: 20px 0 22px 6px;
 }
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .menu h3 {
     margin-left: 122px;
   }
@@ -416,7 +417,7 @@ s .btn_explorer:active {
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 30px -12px;
 }
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   .menu .list {
     margin-left: 122px;
     margin-right: 80px;
@@ -489,17 +490,18 @@ s .btn_explorer:active {
 }
 
 .menu_list > :nth-of-type(1) {
-  animation: SlideDown 0.9s ease-in-out;
+  animation: SlideDown 1s ease-in-out;
 }
 
 .menu_list > :nth-of-type(2) {
-  animation: SlideDown 1.2s ease-in-out;
+  animation: SlideDown 1.3s ease-in-out;
 }
 
 .menu_list > :nth-of-type(3) {
-  animation: SlideDown 1.5s ease-in-out;
+  animation: SlideDown 1.6s ease-in-out;
 }
 
+/*ANIMATION MENUS "ENTREES, PLATS, DESSERTS" (PAGE MENU)*/
 @keyframes SlideDown {
   from {
     transform: translateY(70px);
@@ -515,25 +517,26 @@ s .btn_explorer:active {
   padding-bottom: 20px;
 }
 .btn_commander {
-  background-image: linear-gradient(0deg, rgba(147, 86, 220, 0.9), rgba(255, 121, 218, 0.9));
+  background-image: linear-gradient(0deg, #9356DC, #FF79DA);
+  background-color: #686868;
   text-decoration: none;
   color: #fff;
   border-radius: 50px;
   box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.25);
   padding: 15px 20px;
+  transition: all 500ms;
+  position: relative;
   display: flex;
   width: 30%;
   justify-content: center;
-  background-color: #999;
   margin: auto;
-  transition: all 500ms;
-  position: relative;
 }
 .btn_commander:hover {
   transform: scale(1);
   background-color: white;
-  box-shadow: 0.25rem 0.25rem 10px rgba(0, 0, 0, 0.5);
   background-position: right;
+  background: linear-gradient(180deg, #ff99e2 0%, #dc7bff 100%);
+  box-shadow: 1px 11px 14px 0px rgba(109, 109, 109, 0.699);
 }
 .btn_commander:active {
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
